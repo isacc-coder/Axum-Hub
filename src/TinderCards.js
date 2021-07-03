@@ -3,24 +3,32 @@ import TinderCard from 'react-tinder-card';
 import './TinderCard.css';
 import axios from "./axios";
 function TinderCards() {
-    const [people, setPeople] = useState([])
-    //   {
-    //       name:"Elon Musk",
-    //       url:"https://images.pexels.com/photos/60132/pexels-photo-60132.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-    //   },
-    //   {
-    //     name:"jeff Bezos",
-    //     url:"https://images.pexels.com/photos/60126/pexels-photo-60126.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
-    // },
+    const [people, setPeople] = useState([
+      {
+          name:"Elon Musk",
+          url:"https://images.pexels.com/photos/60132/pexels-photo-60132.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+      },
+      {
+        name:"jeff Bezos",
+        url:"https://images.pexels.com/photos/60126/pexels-photo-60126.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+    },
+    {
+      name:"Tom vru",
+      url:"https://images.pexels.com/photos/2156/sky-earth-space-working.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+  },
+  {
+    name:"bto linb",
+    url:"https://images.pexels.com/photos/8474498/pexels-photo-8474498.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
+},
 
-    // ]);
-    useEffect(() =>{
-       async function fetchData() {
-         const req = await axios.get("/tinder/cards");
-         setPeople(req.data);
-       }
-       fetchData();
-    }, []);
+    ]);
+    // useEffect(() =>{
+    //    async function fetchData() {
+    //      const req = await axios.get("/tinder/cards");
+    //      setPeople(req.data);
+    //    }
+    //    fetchData();
+    // }, []);
 
       const swiped = (direction, nameToDelete) => {
           console.log("removing: " + nameToDelete);
@@ -41,7 +49,7 @@ function TinderCards() {
           onCardLeftScreen={() => outOfFrame(person.name)}
           >
             <div
-              style={{backgroundImage: `url(${person.imgUrl}) ` }}
+              style={{backgroundImage: `url(${person.url}) ` }}
               className="card"
               >
                 <h3>{person.name}</h3>
